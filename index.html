@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>International Land Modelling Forum (ILMF)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="The International Land Modelling Forum (ILMF) connects land modelling centres and researchers to collaborate on land surface and terrestrial modelling."
+  />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-alt: #111827;
+      --card: #111827;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --max-width: 1100px;
+      --radius-lg: 18px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.95),
+        rgba(2, 6, 23, 0.75),
+        transparent
+      );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0.75rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #6ee7b7, #22c55e 40%, #166534 100%);
+      box-shadow: 0 0 0 1px rgba(15, 118, 110, 0.5),
+        0 20px 30px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 36% 16% 16%;
+      border-radius: 999px;
+      border: 1.5px solid rgba(15, 23, 42, 0.65);
+      transform: rotate(-10deg);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-text span:first-child {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .logo-text span:last-child {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: rgba(55, 65, 81, 0.9);
+      color: var(--text);
+    }
+
+    .nav-links a.highlight {
+      border-color: rgba(34, 197, 94, 0.5);
+      background: radial-gradient(circle at 0 0, rgba(16, 185, 129, 0.35), #0b1120);
+      color: #ecfdf5;
+      font-weight: 500;
+    }
+
+    main {
+      flex: 1;
+      padding: 2.75rem 0 3.5rem;
+    }
+
+    .hero {
+      padding: 1.5rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.14rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      background: radial-gradient(circle at 0 0, rgba(16, 185, 129, 0.3), rgba(15, 23, 42, 0.95));
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      line-height: 1.12;
+      margin: 0 0 0.65rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.4rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(55, 65, 81, 0.8);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .pill strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.55rem 1.25rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, #22c55e, #16a34a 40%, #15803d 100%);
+      color: #022c22;
+      font-weight: 600;
+      box-shadow: 0 18px 35px rgba(22, 163, 74, 0.58);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 45px rgba(22, 163, 74, 0.75);
+    }
+
+    .btn-secondary {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(75, 85, 99, 1);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.14), #020617);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: var(--shadow-soft);
+      padding: 1.35rem 1.4rem 1.35rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(96, 165, 250, 0.22), transparent 55%);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .hero-panel-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-panel-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-badge {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--muted);
+    }
+
+    .hero-kpi-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-kpi {
+      min-width: 6rem;
+    }
+
+    .hero-kpi-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-kpi-value {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .hero-kpi-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+
+    .hero-tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+    }
+
+    .hero-tag-cloud span {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.94);
+      color: var(--muted);
+    }
+
+    section {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+    }
+
+    section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.15rem;
+      margin: 0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-header p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 32rem;
+    }
+
+    .section-body {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1rem 1.15rem;
+    }
+
+    .card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+    }
+
+    .card p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+    }
+
+    .pill-list span {
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      color: var(--muted);
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .columns > * {
+      min-width: 0;
+    }
+
+    ul {
+      margin: 0.35rem 0 0.2rem;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    li + li {
+      margin-top: 0.18rem;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .webinar-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .webinar-item h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .webinar-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .webinar-links {
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 1.05rem;
+    }
+
+    .contact-grid h3 {
+      margin-top: 0;
+      margin-bottom: 0.2rem;
+    }
+
+    .steering-list {
+      columns: 2;
+      column-gap: 1.4rem;
+      font-size: 0.9rem;
+      margin: 0.35rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+      padding: 0.9rem 0 1.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    footer .shell {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-panel {
+        order: -1;
+      }
+
+      .columns {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav-links {
+        justify-content: flex-end;
+        max-width: 60%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding: 0 1rem;
+      }
+
+      .nav {
+        padding-inline: 0.2rem;
+      }
+
+      .nav-links {
+        display: none; /* keeps header simple on small screens */
+      }
+
+      .hero {
+        padding-top: 1.1rem;
+      }
+
+      .steering-list {
+        columns: 1;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="shell">
+        <nav class="nav" aria-label="Main">
+          <div class="logo">
+            <div class="logo-mark" aria-hidden="true"></div>
+            <div class="logo-text">
+              <span>International</span>
+              <span>Land Modelling Forum</span>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#community">Community</a>
+            <a href="#webinars">Webinars</a>
+            <a href="#resources">Resources</a>
+            <a href="#contact" class="highlight">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="shell">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span>Global land modelling community</span>
+              </div>
+              <h1 id="hero-title">International Land Modelling Forum (ILMF)</h1>
+              <p class="hero-subtitle">
+                The ILMF brings together land modelling centres and researchers to
+                collaborate on models, methods, and data that underpin our
+                understanding of the terrestrial Earth system.
+              </p>
+
+              <div class="hero-meta">
+                <div class="pill">
+                  <span>Originated from the</span>
+                  <strong>Land Surface Modelling Summit 2022</strong> <!-- EDIT -->
+                </div>
+                <div class="pill">
+                  <span>Focus:</span>
+                  <strong>Land surface &amp; terrestrial models</strong>
+                </div>
+              </div>
+
+              <div class="hero-actions">
+                <a
+                  class="btn btn-primary"
+                  href="#community"
+                >
+                  Join the ILMF mailing list
+                </a>
+                <a
+                  class="btn btn-secondary"
+                  href="#webinars"
+                >
+                  View working group webinars
+                </a>
+              </div>
+              <p class="hero-note">
+                <!-- EDIT: short tagline -->
+                The forum shares ideas, promotes workshops, and supports working groups
+                on mutually beneficial land modelling projects.
+              </p>
+            </div>
+
+            <aside class="hero-panel" aria-label="ILMF snapshot">
+              <div class="hero-panel-inner">
+                <div class="hero-panel-header">
+                  <div class="hero-panel-title">Community snapshot</div>
+                  <div class="hero-badge">Researchers &amp; modelling centres</div>
+                </div>
+                <div class="hero-kpi-row">
+                  <div class="hero-kpi">
+                    <div class="hero-kpi-label">Origins</div>
+                    <div class="hero-kpi-value">LSMS 2022</div>
+                    <div class="hero-kpi-sub">Oxford, UK</div>
+                  </div>
+                  <div class="hero-kpi">
+                    <div class="hero-kpi-label">Activity</div>
+                    <div class="hero-kpi-value">Working groups</div>
+                    <div class="hero-kpi-sub">Webinars &amp; discussions</div>
+                  </div>
+                  <div class="hero-kpi">
+                    <div class="hero-kpi-label">Community</div>
+                    <div class="hero-kpi-value">Mailing list</div>
+                    <div class="hero-kpi-sub">Moderated JiscMail list</div>
+                  </div>
+                </div>
+                <p class="muted">
+                  Through ILMF, centres can coordinate development of land models,
+                  share methods, and build new collaborations across the global
+                  community.
+                </p>
+                <div class="hero-tag-cloud" aria-hidden="true">
+                  <span>Land surface models</span>
+                  <span>Benchmarking</span>
+                  <span>Parameter estimation</span>
+                  <span>Human–Earth interactions</span>
+                  <span>Model coupling</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <div class="shell">
+          <div class="section-header">
+            <h2 id="about-title">About ILMF</h2>
+            <p>
+              The International Land Modelling Forum provides a space for land
+              modellers to coordinate, share experience, and organise focused
+              working groups around common scientific and technical challenges.
+            </p>
+          </div>
+          <div class="section-body">
+            <div class="columns">
+              <article class="card">
+                <h3>Origins&thinsp;– Land Surface Modelling Summit</h3>
+                <p>
+                  ILMF emerged from discussions at the Land Surface Modelling
+                  Summit (LSMS), held in Oxford, UK (12–14 September 2022). The
+                  summit highlighted the need for an ongoing forum where
+                  modelling centres and researchers can work together on shared
+                  priorities.
+                </p>
+                <p>
+                  The Forum supports:
+                </p>
+                <ul>
+                  <li>Coordinated development of land and land–atmosphere models</li>
+                  <li>Exchange of ideas, tools, datasets, and best practice</li>
+                  <li>Promotion of workshops, meetings, and job opportunities</li>
+                  <li>Support for working groups on specific topics</li>
+                </ul>
+              </article>
+
+              <aside class="card">
+                <h3>Participating model groups</h3>
+                <p>
+                  Modelling groups represented at LSMS included (among others):
+                </p>
+                <ul>
+                  <!-- EDIT: adjust list as needed -->
+                  <li><a href="https://jules.jchmr.org/" target="_blank" rel="noreferrer">JULES</a></li>
+                  <li><a href="https://orchidee.ipsl.fr/" target="_blank" rel="noreferrer">ORCHIDEE</a></li>
+                  <li><a href="https://mpimet.mpg.de" target="_blank" rel="noreferrer">JSBACH</a></li>
+                  <li><a href="https://web.nateko.lu.se" target="_blank" rel="noreferrer">LPJ-GUESS</a></li>
+                  <li>TESSEL</li>
+                  <li>CABLE</li>
+                  <li><a href="https://www.cesm.ucar.edu" target="_blank" rel="noreferrer">CLM</a></li>
+                  <li>ELM</li>
+                  <li><a href="https://www.gfdl.noaa.gov" target="_blank" rel="noreferrer">GFDL-LM</a></li>
+                  <li><a href="https://www.bgc-jena.mpg.de" target="_blank" rel="noreferrer">Matsiro</a></li>
+                  <li><a href="https://www.giss.nasa.gov" target="_blank" rel="noreferrer">GISS-LM</a></li>
+                  <li>CoLM</li>
+                  <li><a href="https://cccma.gitlab.io" target="_blank" rel="noreferrer">CLASSIC</a></li>
+                  <li><a href="https://www.umr-cnrm.fr" target="_blank" rel="noreferrer">SURFEX-ISBA</a></li>
+                </ul>
+                <p class="muted">
+                  ILMF also connects to complementary initiatives such as
+                  AIMES, iLEAPS, and GEWEX/GLASS.
+                </p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="community" aria-labelledby="community-title">
+        <div class="shell">
+          <div class="section-header">
+            <h2 id="community-title">Community &amp; mailing list</h2>
+            <p>
+              The ILMF JiscMail list is the primary channel for announcements,
+              discussions, and coordination across the land modelling
+              community.
+            </p>
+          </div>
+          <div class="section-body">
+            <div class="columns">
+              <article class="card">
+                <h3>ILMF discussion list (JiscMail)</h3>
+                <p>
+                  The ILMF mailing list is a private, moderated list used to:
+                </p>
+                <ul>
+                  <li>Share news, meetings, and workshops</li>
+                  <li>Advertise job opportunities</li>
+                  <li>Coordinate working groups and collaborative projects</li>
+                  <li>Keep in touch with the international community</li>
+                </ul>
+                <p class="muted">
+                  Only subscribers can post, and messages are visible to list
+                  members via email and a private archive.
+                </p>
+              </article>
+
+              <aside class="card">
+                <h3>How to subscribe</h3>
+                <ol>
+                  <li>
+                    Go to the ILMF list homepage on
+                    <a href="https://www.jiscmail.ac.uk" target="_blank" rel="noreferrer">JiscMail</a>.
+                    <!-- EDIT: if you have the direct URL, you can paste it here -->
+                  </li>
+                  <li>
+                    Choose <strong>Subscribe</strong>, complete your details, and
+                    submit your request.
+                  </li>
+                  <li>
+                    Confirm your subscription via the email you receive (the
+                    “OK” confirmation).
+                  </li>
+                </ol>
+                <p class="muted">
+                  The list is currently owned and moderated by Dave Lawrence
+                  and Eleanor Blyth. Attachments are enabled, and an archive of
+                  messages is available to subscribers.
+                </p>
+              </aside>
+            </div>
+
+            <article class="card">
+              <h3>Already subscribed?</h3>
+              <p>
+                Subscribers can post by emailing
+                <a href="mailto:ILMF@jiscmail.ac.uk">ILMF@jiscmail.ac.uk</a>.
+              </p>
+              <p>
+                ILMF has also circulated a short survey to better understand
+                community interests and priorities. If you receive a link to the
+                survey, we encourage you to complete it.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="webinars" aria-labelledby="webinars-title">
+        <div class="shell">
+          <div class="section-header">
+            <h2 id="webinars-title">ILMF webinars &amp; working groups</h2>
+            <p>
+              Initial working group webinars have focused on shared methods and
+              infrastructure to support collaborative model development and
+              evaluation.
+            </p>
+          </div>
+          <div class="section-body">
+            <div class="webinar-list">
+              <!-- EDIT: update/add webinars here -->
+              <article class="card webinar-item">
+                <h3>Pathways towards sharable modules for land models</h3>
+                <div class="webinar-meta">21 September 2023</div>
+                <div class="webinar-links">
+                  Recording:
+                  <a
+                    href="https://ukri.zoom.us/rec/share/73WbLadXZXUfTc9d2gdCE-WrU8XurgV8RHY-mQUEOkNwtkm7v4GVRTpnroxQtdo.czsBqu0CUcF60Ooq"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Zoom recording</a
+                  ><br />
+                  Slides &amp; collaborative document:
+                  <a
+                    href="https://drive.google.com/drive/folders/1A-CYJdc7_Ltm4TD6J3pjT2DWg3iJnoya?usp=sharing"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Google Drive folder</a
+                  >
+                </div>
+              </article>
+
+              <article class="card webinar-item">
+                <h3>Parameter estimation methods for land models</h3>
+                <div class="webinar-meta">10 October 2023</div>
+                <div class="webinar-links">
+                  Recording:
+                  <a
+                    href="https://ukri.zoom.us/rec/share/7RIMbLiLHlISUDs_AbaNnAKB6IFv1y-FQ9jURVvNOskTWBVlpaeP2wgA9ZtJVrht.WuPMZox9hoaCrGYV"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Zoom recording</a
+                  ><br />
+                  Collaborative document:
+                  <a
+                    href="https://drive.google.com/drive/folders/1j027kEXZsW43Z01AY81yv5uFPBFIB2yCR?usp=sharing"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Google Drive folder</a
+                  >
+                </div>
+              </article>
+
+              <article class="card webinar-item">
+                <h3>Incorporating human activities into land models</h3>
+                <div class="webinar-meta">18 October 2023</div>
+                <div class="webinar-links">
+                  Recording:
+                  <a
+                    href="https://ukri.zoom.us/rec/share/ZDyaxa4-73902IR2JBPgMyp7PCKIjXhvojbupmVMKdQbfS2t0xbtdUkEFip6L_uZ.agte9SOcfggdnNaN"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Zoom recording</a
+                  ><br />
+                  Slides &amp; collaborative materials:
+                  <a
+                    href="https://drive.google.com/drive/folders/1rhG4ncTPT-rWaMsPBIx-FhT6PmCEYRTq?usp=sharing"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Google Drive folder</a
+                  >
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resources" aria-labelledby="resources-title">
+        <div class="shell">
+          <div class="section-header">
+            <h2 id="resources-title">Resources &amp; related initiatives</h2>
+            <p>
+              Links to LSMS materials and related international programmes that
+              complement the ILMF’s focus on land models.
+            </p>
+          </div>
+          <div class="section-body">
+            <div class="columns">
+              <article class="card">
+                <h3>LSMS 2022 resources</h3>
+                <p>
+                  The Land Surface Modelling Summit 2022 brought together the
+                  land modelling community and led directly to the formation of
+                  the ILMF.
+                </p>
+                <p>
+                  Access the LSMS 2022 webpage and summit materials here:
+                </p>
+                <p>
+                  <a
+                    href="https://hydro-jules.org/international-land-modeling-forum-ilmf"
+                    target="_blank"
+                    rel="noreferrer"
+                    >LSMS 2022 resources</a
+                  >
+                  <!-- EDIT: replace with direct LSMS link if you have one -->
+                </p>
+              </article>
+
+              <aside class="card">
+                <h3>Related international programmes</h3>
+                <p>
+                  ILMF collaborates and aligns with several international
+                  coordination efforts, including:
+                </p>
+                <div class="pill-list">
+                  <span><a href="https://aimesproject.org" target="_blank" rel="noreferrer">AIMES</a></span>
+                  <span><a href="https://ileaps.org" target="_blank" rel="noreferrer">iLEAPS</a></span>
+                  <span><a href="https://www.gewex.org" target="_blank" rel="noreferrer">GEWEX / GLASS</a></span>
+                </div>
+                <p class="muted">
+                  These programmes provide links into broader Earth system and
+                  interdisciplinary communities.
+                </p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="shell">
+          <div class="section-header">
+            <h2 id="contact-title">Contact</h2>
+            <p>
+              For questions about the ILMF, working groups, or the mailing list,
+              please get in touch with the organisers or a member of the
+              Steering Committee.
+            </p>
+          </div>
+          <div class="section-body contact-grid">
+            <article class="card">
+              <h3>ILMF organisers</h3>
+              <p>
+                For general feedback and enquiries:
+              </p>
+              <ul>
+                <!-- EDIT: email addresses / names -->
+                <li>
+                  Dave Lawrence –
+                  <a href="mailto:dlawren@ucar.edu">dlawren@ucar.edu</a>
+                </li>
+                <li>
+                  Eleanor Blyth –
+                  <a href="mailto:emb@ceh.ac.uk">emb@ceh.ac.uk</a>
+                </li>
+              </ul>
+              <p class="muted">
+                You can also contact any Steering Committee member to discuss
+                ideas for future ILMF activities or working groups.
+              </p>
+            </article>
+
+            <aside class="card">
+              <h3>ILMF Steering Committee</h3>
+              <p class="muted">
+                Current members include:
+              </p>
+              <ul class="steering-list">
+                <!-- EDIT: update list as required -->
+                <li>Gab Abramovitz</li>
+                <li>Aaron Boone</li>
+                <li>Martyn Clark</li>
+                <li>Simon Dadson</li>
+                <li>Martin De Kauwe</li>
+                <li>Rosie Fisher</li>
+                <li>Charlie Koven</li>
+                <li>Natasha MacBean</li>
+                <li>Sonali McDermid</li>
+                <li>Philippe Peylin</li>
+                <li>Julia Pongratz</li>
+                <li>Kei Yoshimura</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell">
+        <div>
+          &copy; <!-- EDIT: year --> 2025 International Land Modelling Forum
+        </div>
+        <div class="footer-links">
+          <!-- EDIT: add policies / hosting credits if needed -->
+          <span>Hosted via GitHub Pages</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
