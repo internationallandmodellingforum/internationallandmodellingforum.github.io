@@ -93,26 +93,6 @@
       gap: 0.75rem;
     }
 
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #6ee7b7, #22c55e 40%, #166534 100%);
-      box-shadow: 0 0 0 1px rgba(15, 118, 110, 0.5),
-        0 20px 30px rgba(15, 23, 42, 0.9);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .logo-mark::after {
-      content: "";
-      position: absolute;
-      inset: 36% 16% 16%;
-      border-radius: 999px;
-      border: 1.5px solid rgba(15, 23, 42, 0.65);
-      transform: rotate(-10deg);
-    }
-
     .logo-text {
       display: flex;
       flex-direction: column;
@@ -612,6 +592,14 @@
         columns: 1;
       }
 
+	  .logo-img {
+		width: 36px;
+		height: 36px;
+		object-fit: contain;
+		border-radius: 6px; /* optional—remove if you want the exact shape */
+	  }
+
+
       h1 {
         font-size: 1.7rem;
       }
@@ -623,13 +611,13 @@
     <header class="site-header">
       <div class="shell">
         <nav class="nav" aria-label="Main">
-          <div class="logo">
-            <div class="logo-mark" aria-hidden="true"></div>
-            <div class="logo-text">
-              <span>International</span>
-              <span>Land Modelling Forum</span>
-            </div>
-          </div>
+			<div class="logo">
+			  <img src="assets/images/ILMF logo.png" alt="ILMF logo" class="logo-img">
+			  <div class="logo-text">
+			    <span>International</span>
+			    <span>Land Modelling Forum</span>
+			  </div>
+			</div>
           <div class="nav-links">
             <a href="#about">About</a>
             <a href="#community">Community</a>
