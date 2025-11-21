@@ -521,6 +521,21 @@
       padding-left: 1.1rem;
     }
 
+	.model-groups-list {
+      columns: 2;
+      column-gap: 1.4rem;
+      margin: 0.35rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      .model-groups-list {
+        columns: 1;
+      }
+    }
+
+
     footer {
       border-top: 1px solid rgba(15, 23, 42, 0.95);
       padding: 0.9rem 0 1.4rem;
@@ -721,7 +736,7 @@
       <article class="card">
         <h3>Participating model groups</h3>
         <p>Modelling groups represented at LSMS included (among others):</p>
-        <ul>
+        <ul class="model-groups-list">
           <li><a href="https://jules.jchmr.org/" target="_blank" rel="noreferrer">JULES</a></li>
           <li><a href="https://orchidee.ipsl.fr/" target="_blank" rel="noreferrer">ORCHIDEE</a></li>
           <li><a href="https://mpimet.mpg.de" target="_blank" rel="noreferrer">JSBACH</a></li>
@@ -737,6 +752,7 @@
           <li><a href="https://cccma.gitlab.io" target="_blank" rel="noreferrer">CLASSIC</a></li>
           <li><a href="https://www.umr-cnrm.fr" target="_blank" rel="noreferrer">SURFEX-ISBA</a></li>
         </ul>
+        
         <p class="muted">
           ILMF also connects to complementary initiatives such as AIMES, 
           iLEAPS, and GEWEX/GLASS.
@@ -781,7 +797,7 @@
                 <ol>
                   <li>
                     Go to the ILMF list homepage on
-                    <a href="https://www.jiscmail.ac.uk" target="_blank" rel="noreferrer">JiscMail</a>.
+                    <a href="https://www.jiscmail.ac.uk/cgi-bin/webadmin?SUBED1=ILMF&A=1" target="_blank" rel="noreferrer">JiscMail</a>.
                     <!-- EDIT: if you have the direct URL, you can paste it here -->
                   </li>
                   <li>
