@@ -28,6 +28,10 @@
       box-sizing: border-box;
     }
 
+    section {
+      scroll-margin-top: 250px; /* adjust this value */
+    }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -656,7 +660,7 @@
               </p>
             
               <div class="hero-actions">
-                <a class="btn btn-primary" href="#community">
+                <a class="btn btn-primary" href="https://www.jiscmail.ac.uk/cgi-bin/webadmin?SUBED1=ILMF&A=1">
                   Join the ILMF mailing list
                 </a>
                 <a class="btn btn-secondary" href="#webinars">
@@ -763,75 +767,70 @@
   </div>
 </section>
 
-      <section id="community" aria-labelledby="community-title">
-        <div class="shell">
-          <div class="section-header">
-            <h2 id="community-title">Community &amp; mailing list</h2>
-            <p>
-              The ILMF JiscMail list is the primary channel for announcements,
-              discussions, and coordination across the land modelling
-              community.
-            </p>
-          </div>
-          <div class="section-body">
-            <div class="columns">
-              <article class="card">
-                <h3>ILMF discussion list (JiscMail)</h3>
-                <p>
-                  The ILMF mailing list is a private, moderated list used to:
-                </p>
-                <ul>
-                  <li>Share news, meetings, and workshops</li>
-                  <li>Advertise job opportunities</li>
-                  <li>Coordinate working groups and collaborative projects</li>
-                  <li>Keep in touch with the international community</li>
-                </ul>
-                <p class="muted">
-                  Only subscribers can post, and messages are visible to list
-                  members via email and a private archive.
-                </p>
-              </article>
+<section id="community" aria-labelledby="community-title">
+  <div class="shell">
+    <div class="section-header">
+      <h2 id="community-title">Community &amp; mailing list</h2>
+    </div>
 
-              <aside class="card">
-                <h3>How to subscribe</h3>
-                <ol>
-                  <li>
-                    Go to the ILMF list homepage on
-                    <a href="https://www.jiscmail.ac.uk/cgi-bin/webadmin?SUBED1=ILMF&A=1" target="_blank" rel="noreferrer">JiscMail</a>.
-                    <!-- EDIT: if you have the direct URL, you can paste it here -->
-                  </li>
-                  <li>
-                    Choose <strong>Subscribe</strong>, complete your details, and
-                    submit your request.
-                  </li>
-                  <li>
-                    Confirm your subscription via the email you receive (the
-                    “OK” confirmation).
-                  </li>
-                </ol>
-                <p class="muted">
-                  The list is currently owned and moderated by Dave Lawrence
-                  and Eleanor Blyth. Attachments are enabled, and an archive of
-                  messages is available to subscribers.
-                </p>
-              </aside>
-            </div>
+    <div class="section-body">
 
-            <article class="card">
-              <h3>Already subscribed?</h3>
-              <p>
-                Subscribers can post by emailing
-                <a href="mailto:ILMF@jiscmail.ac.uk">ILMF@jiscmail.ac.uk</a>.
-              </p>
-              <p>
-                ILMF has also circulated a short survey to better understand
-                community interests and priorities. If you receive a link to the
-                survey, we encourage you to complete it.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+      <!-- HOW TO SUBSCRIBE — Primary card -->
+      <article class="card">
+        <h3>How to subscribe</h3>
+        <p>The ILMF mailing list is the main channel for announcements, events, and community discussions.</p>
+
+        <ol>
+          <li>
+            Go to the ILMF list homepage on
+            <a href="https://www.jiscmail.ac.uk/cgi-bin/webadmin?SUBED1=ILMF&A=1" target="_blank" rel="noreferrer">JiscMail</a>.
+          </li>
+          <li>Click <strong>Subscribe</strong>, enter your details, and submit.</li>
+          <li>Confirm your subscription via the “OK” link emailed to you.</li>
+        </ol>
+
+        <p class="muted">
+          The list is moderated by Eleanor Blyth and Dave Lawrence.  
+          Only subscribers can post; archives are available to members.
+        </p>
+      </article>
+
+      <!-- WRAPPER THAT MAKES THE TWO CARDS SIT SIDE–BY–SIDE -->
+      <div class="columns">
+        
+        <!-- ABOUT card -->
+        <article class="card">
+          <h3>About the ILMF mailing list</h3>
+          <p>The mailing list helps researchers collaborate and stay informed by sharing:</p>
+          <ul>
+            <li>News and announcements</li>
+            <li>Workshops and meetings</li>
+            <li>Job opportunities</li>
+            <li>Working group coordination</li>
+          </ul>
+          <p class="muted">Messages are delivered to all subscribers and stored privately.</p>
+        </article>
+
+        <!-- ALREADY SUBSCRIBED card -->
+        <article class="card">
+          <h3>Already subscribed?</h3>
+          <p>
+            Post to the list via:  
+            <a href="mailto:ILMF@jiscmail.ac.uk">ILMF@jiscmail.ac.uk</a>
+          </p>
+          <p>
+            Subscribers may also receive community surveys and working-group updates.  
+            We encourage members to participate.
+          </p>
+        </article>
+
+      </div> <!-- end columns -->
+
+    </div>
+  </div>
+</section>
+
+
 
       <section id="webinars" aria-labelledby="webinars-title">
         <div class="shell">
@@ -917,10 +916,6 @@
         <div class="shell">
           <div class="section-header">
             <h2 id="resources-title">Resources &amp; related initiatives</h2>
-            <p>
-              Links to LSMS materials and related international programmes that
-              complement the ILMF’s focus on land models.
-            </p>
           </div>
           <div class="section-body">
             <div class="columns">
