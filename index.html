@@ -593,12 +593,13 @@
       }
 
 	.logo-img {
-	  width: 18px;
-	  height: 18px;
+	  max-width: 36px;
+	  max-height: 36px;
 	  object-fit: contain;
-	  border-radius: 6px; /* optional—remove if you want the exact shape */
+	  flex-shrink: 0;
+	  display: block;
 	}
-
+		
 
       h1 {
         font-size: 1.7rem;
