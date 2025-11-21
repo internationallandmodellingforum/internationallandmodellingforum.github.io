@@ -90,10 +90,16 @@
       padding: 0.9rem 0.75rem;
     }
 
+	html {
+	  scroll-behavior: smooth;
+	}
+	  
     .logo {
       display: flex;
       align-items: center;
       gap: 0.75rem;
+	  text-decoration: none;
+	  color: inherit; 
     }
 
 	.logo-img {
@@ -615,7 +621,7 @@
     <header class="site-header">
       <div class="shell">
         <nav class="nav" aria-label="Main">
-			<div class="logo">
+			<a href="#" class="logo">
 			  <img src="assets/favicon.png"
 			       alt="International Land Modelling Forum logo"
 			       class="logo-img">
@@ -623,7 +629,7 @@
 			    <span>International</span>
 			    <span>Land Modelling Forum</span>
 			  </div>
-			</div>
+			</a>
           <div class="nav-links">
             <a href="#about">About</a>
             <a href="#community">Community</a>
