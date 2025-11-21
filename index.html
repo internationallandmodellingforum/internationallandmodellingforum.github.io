@@ -119,20 +119,30 @@
     .logo-text {
       display: flex;
       flex-direction: column;
-      gap: 0.1rem;
+      justify-content: center;
     }
 
-    .logo-text span:first-child {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.09em;
+    .logo-text-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo-acronym {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
+      line-height: 1;
     }
 
-    .logo-text span:last-child {
-      font-size: 0.95rem;
-      font-weight: 600;
+    .logo-tagline {
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: 0;
+      color: var(--muted);
     }
 
     .nav-links {
@@ -627,13 +637,18 @@
       <div class="shell">
         <nav class="nav" aria-label="Main">
 			<a href="#" class="logo">
-			  <img src="assets/favicon.png"
-			       alt="International Land Modelling Forum logo"
-			       class="logo-img">
+			  <img 
+              	src="assets/favicon.png"
+			    alt="International Land Modelling Forum logo"
+			    class="logo-img">
 			  <div class="logo-text">
-			    <span>International</span>
-			    <span>Land Modelling Forum</span>
-			  </div>
+              	<div class="logo-text-inner">
+                  <div class="logo-acronym">ILMF</div>
+                  <div class="logo-tagline">
+                  International Land<br>
+                  Modelling Forum</div>
+			  	</div>
+              </div>
 			</a>
           <div class="nav-links">
             <a href="#about">About</a>
