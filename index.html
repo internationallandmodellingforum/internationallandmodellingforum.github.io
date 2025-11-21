@@ -25,6 +25,9 @@
       --radius-lg: 18px;
       --radius-xl: 28px;
       --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.65);
+      --ease-out-quart: cubic-bezier(.165, .84, .44, 1);
+      --ease-out-expo: cubic-bezier(.19, 1, .22, 1);
+      --snap-fast: cubic-bezier(.25, .46, .45, .94);
     }
 
     * {
@@ -506,6 +509,42 @@
       gap: 0.75rem;
     }
 
+    /* Make sure the container is the "group" */
+    .webinar-list {
+      display: grid;
+      gap: 0.75rem;
+      position: relative;
+    }
+
+    /* Slightly extend transition to cover opacity/filter too */
+    .webinar-list .card {
+      transition:
+        transform 0.32s var(--ease-out-expo),
+        box-shadow 0.32s var(--ease-out-expo),
+        background 0.32s var(--ease-out-expo),
+        opacity 0.2s ease-out,
+        filter 0.2s ease-out;
+    }
+
+    /* When you're hovering anywhere over the list,
+       ALL cards become dimmed by default... */
+    .webinar-list:hover .card {
+      opacity: 0.45;
+      filter: grayscale(0.4);
+      transform: translateY(0);      /* don’t lift non-hovered ones */
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+
+    /* ...except the one you're actually on */
+    .webinar-list:hover .card:hover,
+    .webinar-list .card:focus-within {
+      opacity: 1;
+      filter: none;
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+      background: rgba(20, 30, 50, 0.98);
+    }
+
     .webinar-item h3 {
       font-size: 0.98rem;
       margin-bottom: 0.1rem;
@@ -552,7 +591,6 @@
         columns: 1;
       }
     }
-
 
     footer {
       border-top: 1px solid rgba(15, 23, 42, 0.95);
