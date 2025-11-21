@@ -97,8 +97,8 @@
     }
 
 	.logo-img {
-	  width: 45px !important;
-	  height: 45px !important;
+	  width: 64px !important;
+	  height: 64px !important;
 	  object-fit: contain;
 	  display: block;
 	}
@@ -159,7 +159,7 @@
     }
 
     .hero {
-      padding: 1.5rem 0 2.5rem;
+      padding: 1.5rem 0 5rem;
     }
 
     .hero-grid {
@@ -379,15 +379,15 @@
       color: var(--muted);
     }
 
-    section {
-      margin-top: 1.75rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(15, 23, 42, 0.95);
+    main section {
+      margin: 0;
+      padding: 2.5rem 0;
     }
 
-    section:first-of-type {
-      border-top: none;
-      padding-top: 0;
+    main section:nth-of-type(even) {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(4px);
+  	  border: 1px solid rgba(255, 255, 255, 0.03);
     }
 
     .section-header {
